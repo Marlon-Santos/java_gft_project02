@@ -1,6 +1,6 @@
 package com.gft;
 
-public class Veiculo {
+public abstract class Veiculo {
 	private String marca;
 	private String modelo;
 	private String placa;
@@ -16,21 +16,21 @@ public class Veiculo {
 			if (litrosCombustivel >= 1) {
 				this.velocidade += 20;
 				this.litrosCombustivel -= 1;
-				System.out.printf("carro em movimento, Velocidade: %dkm/h", this.velocidade);
+				System.out.printf("veiculo em movimento, Velocidade: %dkm/h", this.velocidade);
 				System.out.printf(" combustivel: %dL%n", this.litrosCombustivel);
 			} else {
 				System.out.println("abastecer primeiro, voce esta sem gasolina");
 			}
 
 		} else {
-			System.out.println("não é possivel acelerar pois o carro esta desligado, por favor ligue-o primeiro");
+			System.out.println("nï¿½o ï¿½ possivel acelerar pois o veiculo esta desligado, por favor ligue-o primeiro");
 		}
 	}
 
 	public void abastecer(int qtdLitros) {
 		if (this.litrosCombustivel + qtdLitros <= 100) {
 			this.litrosCombustivel += qtdLitros;
-			System.out.printf("carro abastecido, quantidade atual: %dL%n", this.litrosCombustivel);
+			System.out.printf("veiculo abastecido, quantidade atual: %dL%n", this.litrosCombustivel);
 		} else {
 			System.out.println("voce esta ultrapassando o limite de 100L, por favor coloque um valor dentro do limite");
 		}
@@ -40,10 +40,10 @@ public class Veiculo {
 		if (this.isLigado && this.velocidade > 0) {
 			if (this.velocidade <= 10) {
 				this.velocidade = 0;
-				System.out.println("carro freiado e parado");
+				System.out.println("veiculo freiado e parado");
 			} else {
 				this.velocidade -= 10;
-				System.out.printf("carro freiado velocidade atual %d km/h", velocidade);
+				System.out.printf("veiculo freiado velocidade atual %d km/h", velocidade);
 			}
 		} else {
 			System.out.println("voce esta parado");
@@ -55,26 +55,26 @@ public class Veiculo {
 			this.cor = cor;
 			System.out.printf("cor alterada, cor atual: %s", this.cor);
 		} else {
-			System.out.println("cor não modificado, cor escolhida não disponivel");
+			System.out.println("cor nï¿½o modificado, cor escolhida nï¿½o disponivel");
 		}
 
 	}
 
 	public void ligar() {
 		if (this.isLigado) {
-			System.out.println("o carro ja se encontra ligado");
+			System.out.println("o veiculo ja se encontra ligado");
 		} else {
 			this.isLigado = true;
-			System.out.println("o carro foi ligado");
+			System.out.println("o veiculo foi ligado");
 		}
 	}
 
 	public void desligar() {
 		if (!this.isLigado) {
-			System.out.println("o carro ja se encontra desligado");
+			System.out.println("o veiculo ja se encontra desligado");
 		} else {
 			this.isLigado = false;
-			System.out.println("o carro foi desligado");
+			System.out.println("o veiculo foi desligado");
 		}
 	}
 
